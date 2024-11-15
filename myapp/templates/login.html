@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Pegasus Automation</title>
+    <style>
+        /* Main body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+       /* Header styling with reduced height */
+    .header {
+      background-color: #fff;
+      height: 60px; /* Set a specific height */
+      padding: 0; /* Remove any internal padding */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .logo img {
+      height: 40px; /* Adjust logo height to fit within the reduced header */
+    }
+    .navbar-list {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+    .navbar-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+
+        /* Form container styling */
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 6rem; /* Adjusted for header */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.8rem;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    
+
+    <!-- Login Form Container -->
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

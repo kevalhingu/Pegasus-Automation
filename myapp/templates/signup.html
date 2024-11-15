@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Pegasus Automation</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'images/pegasus_homes_logo.svg' %}" type="image/svg+xml">
+
+  <!-- Google Font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Header styling with reduced height */
+    .header {
+      background-color: #fff;
+      height: 60px; /* Set a specific height */
+      padding: 0; /* Remove any internal padding */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .logo img {
+      height: 40px; /* Adjust logo height to fit within the reduced header */
+    }
+    .navbar-list {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+    .navbar-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Centering and styling the form */
+    .form-container {
+      max-width: 400px;
+      padding: 2rem;
+      margin: auto;
+      background-color: #f3f4f6;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .form-container h2 {
+      margin-bottom: 1.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  
+
+  <!-- Sign Up Form Section -->
+  <main class="container">
+    <div class="form-container">
+      <h2>Sign Up</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Username:</label>
+          {{ form.username }}
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          {{ form.email }}
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          {{ form.password1 }}
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation">Password confirmation:</label>
+          {{ form.password2 }}
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Custom JavaScript link -->
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

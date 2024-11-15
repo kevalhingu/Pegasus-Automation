@@ -1,0 +1,624 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pegasus Automation</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'images/pegasus_homes_logo.svg' %}" type="image/svg+xml">
+
+  <!-- Custom CSS link -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- Google Font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-bottom">
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="{% static 'images/Screenshot 2024-05-16 200630.png' %}" width="230" height="60" alt="Pegasus logo">
+        </a>
+
+        <nav class="navbar" data-navbar>
+            <div class="navbar-bottom">
+                <ul class="navbar-list">
+                    <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
+                    <li><a href="#about" class="navbar-link" data-nav-link>About Us</a></li>
+                    <li><a href="#service" class="navbar-link" data-nav-link>Service</a></li>
+                    <li><a href="#cont" class="navbar-link" data-nav-link>Products</a></li>
+                    <li><a href="#blog" class="navbar-link" data-nav-link>Blog</a></li>
+                    <li><a href="{% url 'support' %}" class="navbar-link" data-nav-link>Support</a></li> <!-- New Support link -->
+        
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}" class="navbar-link" data-nav-link>Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'signup' %}" class="navbar-link" data-nav-link>Sign Up</a></li>
+                        <li><a href="{% url 'login' %}" class="navbar-link" data-nav-link>Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        
+      </div>
+    </div>
+  </header>
+
+  <!-- Chatbot Button and Popup -->
+  <button id="chatbot-btn" class="chatbot-btn">
+    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+  </button>
+
+  <div id="chatbot-popup" class="chatbot-popup" style="display: none;">
+    <div class="chatbot-header">
+      <span>Pegasus Bot</span>
+      <button id="close-btn" class="close-btn">&times;</button>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+      <p>Hi! I am Pegasus Bot, how can I help you today?</p>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+ 
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            
+
+            <h2 class="h2 hero-title"> One Stop IoT Solution <br> Pegasus Automation."
+            </h2>
+
+            <p class="hero-text">
+              "Transforming industries with innovative IoT solutions for seamless connectivity and efficiency."
+
+            </p>
+
+            <button class="btn"><a href="./form/support.html" class="navbar-link-o" data-nav-link>Make an Enquiry </button></a>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="../static/images/home_1.png" alt="Modern house model" class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="about" id="about">
+        <div class="container">
+
+          <figure class="about-banner">
+            <img src="../static/images/home-removebg-preview.png" alt="House interior">
+
+           
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">About Us</p>
+
+            <h2 class="h2 section-title">Innovative IoT solutions for businesses.</h2>
+
+            <p class="about-text">
+              Pegasus is a leading innovator in IoT solutions, empowering businesses with cutting-edge technology for seamless connectivity and smart automation. With a focus on reliability and efficiency, we deliver tailor-made solutions to meet diverse industry needs.
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <ion-icon name="home-outline"></ion-icon>
+                </div>
+
+                <p class="about-item-text"> Modular Excellence
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                </div>
+
+                <p class="about-item-text">Data-driven Insights</p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <ion-icon name="wine-outline"></ion-icon>
+                </div>
+
+                <p class="about-item-text">Seamless Integration
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <ion-icon name="shield-checkmark-outline"></ion-icon>
+                </div>
+
+                <p class="about-item-text">Dedicated Support
+                </p>
+              </li>
+
+            </ul>
+
+            <p class="callout">
+              "If you think that internet has changed your life, think again.
+The IoT is about to change it all over again!"
+
+            </p>
+
+            
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="service" id="service">
+        <div class="container">
+
+          <p class="section-subtitle">Our Services</p>
+
+          <h2 class="h2 section-title">Our Main Focus</h2>
+
+          <ul class="service-list">
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="../static/images/service-1.png" alt="Service icon">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <a href="#"> Modular IoT Products</a>
+                </h3>
+
+                <p class="card-text">
+                  It provides unmatched adaptability and scalability, offering interchangeable hardware and software modules for tailored solutions. From smart homes to industrial automation, customize your setup for evolving needs. 
+                </p>
+
+               
+
+                 
+              
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="../static/images/service-2.png" alt="Service icon">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <a href="#"> IoT Analysis Platform</a>
+                </h3>
+
+                <p class="card-text">
+                  Access real-time insights and analytics from your IoT devices anytime, anywhere. Our cross-platform analysis tool ensures comprehensive monitoring and control across Android, iOS, and web platforms.
+                </p>
+
+                
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="../static/images/service-3.png" alt="Service icon">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <a href="#">IoT APIs</a>
+                </h3>
+
+                <p class="card-text">
+                  Streamline IoT development with our robust set of APIs, enabling seamless communication and integration between devices and applications for enhanced functionality and interoperability.
+                </p>
+
+                
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROPERTY
+      -->
+
+      
+
+
+
+
+
+      <!-- 
+        - #FEATURES
+      -->
+
+      <section class="features">
+        <div class="container" id = "cont">
+            <p class="section-subtitle">Our Products</p>
+            <h2 class="h2 section-title">Building Changes</h2>
+            <ul class="features-list">
+    
+                <li class = "a">
+                    <a href="#" class="features-card">
+                        <div class="card-icon">
+                            <ion-icon name="water-outline"></ion-icon>
+                        </div>
+                        <h5 class="card-title">Connectivity Solution : WiFi, 4G/2G, Ethernet, BLE
+                        </h5>
+                        
+                    </a>
+                </li>
+    
+                <li class = "b">
+                    <a href="#" class="features-card">
+                        <div class="card-icon">
+                            <ion-icon name="shield-checkmark-outline"></ion-icon>
+                        </div>
+                        <h3 class="card-title">Data Logging: <br>RS485, ADC, CANBUS,Dry contacts, I2C</h3>
+                        
+                    </a>
+                </li>
+    
+                <li class = "c">
+                    <a href="#" class="features-card">
+                        <div class="card-icon">
+                            <ion-icon name="library-outline"></ion-icon>
+                        </div>
+                        <h3 class="card-title">Solar Street Light
+                        </h3>
+                        
+                    </a>
+                </li>
+    
+                
+    
+                <li class = "d">
+                    <a href="#" class="features-card">
+                        <div class="card-icon">
+                            <ion-icon name="bed-outline"></ion-icon>
+                        </div>
+                        <h3 class="card-title">MYOSA:<br>Make your own sensor application</h3>
+                        
+                    </a>
+                </li>
+    
+                <li class = "e">
+                    <a href="#" class="features-card">
+                        <div class="card-icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </div>
+                        <h5 class="card-title">Home Automation:<br>Aikyam Automation</h5>
+                        
+                    </a>
+                </li>
+    
+                <li class = "f">
+                    <a href="#" class="features-card">
+                        <div class="card-icon">
+                            <ion-icon name="football-outline"></ion-icon>
+                        </div>
+                        <h3 class="card-title">Protocols:<br> MODBUS
+                        </h3>
+                        
+                    </a>
+                </li>
+    
+            </ul>
+        </div>
+    </section>
+    
+
+
+
+
+
+      
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      
+
+    </article>
+  </main>
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="blog" id="blog">
+        <div class="container">
+
+          <p class="section-subtitle">News & Blogs</p>
+
+          <h2 class="h2 section-title">Leatest News Feeds</h2>
+
+          <ul class="blog-list has-scrollbar">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <img src="../static/images/5g.png" alt="Benefits of 5G Technology" class="w-100">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-content-top">
+
+                    <ul class="card-meta-list">
+
+                    </ul>
+
+                    <h3 class="h3 blog-title">
+                      <a href="https://www.digi.com/blog/post/5g-benefits">Benefits of 5G Technology</a>
+                    </h3>
+
+                  </div>
+
+                  <div class="blog-content-bottom">
+                    <div class="publish-date">
+                      <ion-icon name="calendar"></ion-icon>
+
+                      <time datetime="2022-27-04">May 11, 2024</time>
+                    </div>
+
+                    <a href="https://www.digi.com/blog/post/5g-benefits" class="read-more-btn">Read More</a>
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <img src="../static/images/1256_best-practices-for-cloudbased-iot-security.jpg" alt="Recent Commercial Real Estate Transactions" class="w-100">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-content-top">
+
+                  
+
+                    <h3 class="h3 blog-title">
+                      <a href="https://www.gadgeon.com/blog/best-practices-for-cloudbased-iot-security/">Best Practices for Cloud-Based IoT Security</a>
+                    </h3>
+
+                  </div>
+
+                  <div class="blog-content-bottom">
+                    <div class="publish-date">
+                      <ion-icon name="calendar"></ion-icon>
+
+                      <time datetime="2024-13-05">May 13, 2024</time>
+                    </div>
+
+                    <a href="https://www.gadgeon.com/blog/best-practices-for-cloudbased-iot-security/" class="read-more-btn">Read More</a>
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <img src="../static/images/doctor-using-virtual-applicationXX1X.jpg" alt="Renovating a Living Room? Experts Share Their Secrets"
+                    class="w-100">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-content-top">
+
+                
+
+                    <h3 class="h3 blog-title">
+                      <a href="https://www.iot-now.com/2024/04/24/144165-the-impact-of-iot-on-medical-equipment-and-healthcare/">The impact of IoT on Healthcare</a>
+                    </h3>
+
+                  </div>
+
+                  <div class="blog-content-bottom">
+                    <div class="publish-date">
+                      <ion-icon name="calendar"></ion-icon>
+
+                      <time datetime="2022-27-04">Apr 27, 2022</time>
+                    </div>
+
+                    <a href="https://www.iot-now.com/2024/04/24/144165-the-impact-of-iot-on-medical-equipment-and-healthcare/" class="read-more-btn">Read More</a>
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="../static/images/Screenshot 2024-05-16 200438.png"  width="300" height="80"  alt="Pegasus logo">
+          </a>
+
+          <p class="section-text">
+            "Transforming industries with innovative IoT solutions for seamless connectivity and efficiency."
+          </p>
+
+          <ul class="contact-list">
+
+            <li>
+              <a href="https://maps.app.goo.gl/g3MY8wFDmvSnj8h27" class="contact-link">
+                <ion-icon name="location-outline"0000000></ion-icon>
+
+                <address>: A-44/655, Krishnanagar, Saijpur Bogha, Ahmedabad - 382345</address>
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+91 7574842044" class="contact-link">
+                <ion-icon name="call-outline"></ion-icon>
+
+                <span>+91 7574842044</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:pegasusautomation05@gmail.com" class="contact-link">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <span>pegasusautomation05@gmail.com</span>
+              </a>
+            </li>
+
+          </ul>
+
+         
+        </div>
+
+        <div>
+         
+
+        </div>
+
+        <div class="footer-link-box">
+
+
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Company</p>
+            </li>
+
+            <li>
+              <a href="#home" class="footer-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#about" class="footer-link">About Us</a>
+            </li>
+
+            <li>
+              <a href="#service" class="footer-link">Service</a>
+            </li>
+
+            <li>
+              <a href="#cont" class="footer-link">Products</a>
+            </li>
+
+            <li>
+              <a href="./form/support.html" class="footer-link">Support</a>
+            </li>
+            <li>
+              <a href="./login-page/login-page/index.html" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link"></a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+   
+
+  </footer>
+
+  <!-- Custom JavaScript link -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- Ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
